@@ -19,7 +19,6 @@
         }
 
         header {
-            background: rgb(2,0,36);
             background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
             color: white;
             padding: 40px 0;
@@ -184,7 +183,7 @@
                     <p>A content management system with user authentication.</p>
                 </div>
                 <div class="project">
-                    <h3>Project 3:Weather App</h3>
+                    <h3>Project 3: Weather App</h3>
                     <p>A real-time weather tracking app using APIs.</p>
                 </div>
             </div>
@@ -192,12 +191,12 @@
 
         <section class="section">
             <h2>Contact Me</h2>
-            <div class="contact-form">
+            <form class="contact-form">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <textarea placeholder="Your Message" rows="5" required></textarea>
                 <button type="submit">Send Message</button>
-            </div>
+            </form>
         </section>
     </div>
 
@@ -205,6 +204,35 @@
         <p>&copy; 2024 My Portfolio. All rights reserved.</p>
         <p>Connect with me on <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> or <a href="https://github.com" target="_blank">GitHub</a>.</p>
     </footer>
+
+    <!-- JavaScript for contact form -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector('.contact-form');
+            const nameInput = form.querySelector('input[type="text"]');
+            const emailInput = form.querySelector('input[type="email"]');
+            const messageInput = form.querySelector('textarea');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent form from reloading the page
+
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const message = messageInput.value.trim();
+
+                if (!name || !email || !message) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+
+                alert(`Thank you, ${name}! Your message has been received.`);
+                
+                // Clear the form
+                nameInput.value = '';
+                emailInput.value = '';
+                messageInput.value = '';
+            });
+        });
+    </script>
 </body>
 </html>
-
